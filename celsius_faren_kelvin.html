@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>Bienvenida del usuario</title>
+  <script type="text/javascript">
+    function alertName() {
+      var cel1 = parseFloat(document.forms[0].cel.value);
+      var opcionval = document.getElementById("opcion").value;
+
+      var f1 = (cel1 * 1.8) + 32;
+      var k1 = cel1 + 273.15;
+
+      if (opcionval == "f") {
+        document.write("Fahrenheit: " + f1);
+      } else if (opcionval == "k") {
+        document.write("Kelvin: " + k1);
+      }
+      
+      return false;
+    }
+  </script>
+</head>
+<body>
+  <form id="myform" onsubmit="return alertName();">
+    <p>Grados centígrados <input id="cel" name="cel" type="text" /></p>
+    <p>Conversión
+      <select name="opcion" id="opcion">
+        <option value="f">FARENHEIT</option>
+        <option value="k">KELVIN</option>
+      </select>
+    </p>
+    <p><input type="submit" /></p>
+  </form>
+</body>
+</html>

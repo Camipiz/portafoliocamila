@@ -1,0 +1,49 @@
+<html>
+
+<head>
+
+  <title>Bienvenida del usuario</title>
+
+  <script type = "text/javascript">
+
+  function alertName() {
+
+    var usuario1=(document.forms[0].usuario.value);
+    var contra1=(document.forms[0].contra.value);
+
+
+   if (usuario1 == "Camila" && contra1 == "12345"){
+   document.write("ACCESO CONCEDIDO");
+   document.write("<a href=https://alvaradoprograwebi13.000webhostapp.com/> Ir a portafolio</a>");
+   
+   }
+   else 
+   { 
+    document.write("ACCESO DENEGADO");
+    document.write("<a href=usuario.html>regresar a validar</a>");
+    }   
+  }
+  </script>
+ <style>
+  p{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    background-color: rebeccapurple;
+  }
+ </style>
+</head>
+
+<body>
+
+<form id="myform" onsubmit="return alertName();">
+
+<p>Usuario: <input id="usuario" name="usuario" type="text" /></p>
+<p>Password: <input id="contra" name="contra" type="password" /></p>
+
+<p><input type="submit" /></p>
+
+</form>
+
+</body>
+
+</html>
+
