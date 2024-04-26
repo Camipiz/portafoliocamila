@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<body>
+
+
+
+<div id="myPlot" style="width:100%;max-width:700px"></div>
+<div id="myPlot2" style="width:100%;max-width:700px"></div>
+<div id="myPlot3" style="width:100%;max-width:700px"></div>
+
+
+<script>
+
+const xArray = ["PROGRA WEB I","CNG II","PROGRA I","MATE I","FISICA I","INGLÉS V"];
+
+const yArray = [10.0, 10.0, 9.0, 8.5, 7.5, 7.5,];
+
+
+
+const data = [{
+
+ x:xArray,
+
+ y:yArray,
+
+ type:"bar",
+
+ orientation:"v",
+
+ marker: {color:"rgba(182, 149, 192, 0.8)"}
+
+}];
+
+
+
+const layout = {title:"Rendimiento parcial 1"};
+
+
+
+Plotly.newPlot("myPlot", data, layout);
+//other
+const xArray2 = ["PROGRA WEB I","CNG II","PROGRA I","MATE I","FISICA I","INGLÉS V"];
+
+const yArray2 = [9.5, 10.0, 8.0, 8.5, 8.0, 7.5,];
+
+
+
+const data2 = [{
+
+ x:xArray2,
+
+ y:yArray2,
+
+ type:"bar",
+
+ orientation:"v",
+
+ marker: {color:"rgba(255, 99, 132, 0.8)"}
+
+}];
+
+
+
+const layout2 = {title:"Rendimiento parcial 2"};
+
+
+
+Plotly.newPlot("myPlot2", data2, layout2);
+
+//other
+
+let num =(Math.random()*10+1);
+
+
+const xArray3 = ["PROGRA WEB I","CNG II","PROGRA I","MATE I","FISICA I","INGLÉS V"];
+
+const yArray3 = [];
+for (let i = 0; i < xArray3.length; i++) {
+            yArray3.push(Math.random() * 10 + .5);
+        }
+
+const data3 = [{
+
+ x:xArray3,
+
+ y:yArray3,
+
+ type:"bar",
+
+ orientation:"v",
+
+ marker: {color:"rgba(255, 99, 132, 0.8)"}
+
+}];
+
+
+
+const layout3 = {title:"Rendimiento parcial 3"};
+
+
+
+Plotly.newPlot("myPlot3", data3, layout3);
+
+</script>
+
+
+
+</body>
+
+</html>
+
