@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado Parte I</title>
+</head>
+<body>
+    <h1>Ahorcado Parte I</h1>
+    <p><button onclick="dibujar()">Dibujar</button></p>
+    <p><button onclick="limpiar()">Limpiar</button></p>
+    <p>Intentos Restantes: <span id="intentos">6</span></p>
+    <p>Palabra: <span id="palabra"></span></p>
+    <p>Letras Adivinadas: <input type="text" id="letra" maxlength="1"></p>
+    <button onclick="verificar()">Verificar</button>
+
+<canvas id="myCanvas" width="400" height="400" style="border: 1px solid black;">
+Sorry, your browser does not support canvas
+</canvas>
+
+    <script>
+        var palabras = ["Rondana", "Tenedor", "Sirenita", "Cubano", "Perro"];
+        var palabraSecreta = palabras[Math.floor(Math.random() * palabras.length)].toUpperCase();
+        console.log("Palabra secreta: " + palabraSecreta);
+        var intentosRestantes = 6;
+
+        function verificar() {
+            var letra = document.getElementById("letra").value.toUpperCase();
+            var palabraMostrada = document.getElementById("palabra").textContent;
+            var palabraUsuario = "";
+            var letraEncontrada = false;
+
+            for (var i = 0; i < palabraSecreta.length; i++) {
+                if (palabraSecreta[i] === letra) {
+                    palabraUsuario += letra;
+                    letraEncontrada = true;
+                } else {
+                    palabraUsuario += palabraMostrada[i];
+                }
+            }
+
+            document.getElementById("palabra").textContent = palabraUsuario;
+
+            if (!letraEncontrada) {
+                intentosRestantes--;  //si es diferente de la letra, disminuye intentos
+                document.getElementById("intentos").textContent = intentosRestantes;
+                dibujar();
+
+                if (intentosRestantes === 0) {
+                    alert("¡Perdiste! La palabra correcta era: " + palabraSecreta);
+                    reiniciarJuego(); //si llega a 0 pierde
+                }
+            } else if (palabraUsuario === palabraSecreta) {
+                alert("¡Felicidades, ganaste!"); //si la palabra puesta es igual a la secreta, gana
+                reiniciarJuego();
+            }
+
+        }
+
+        function reiniciarJuego() {
+            palabraSecreta = palabras[Math.floor(Math.random() * palabras.length)].toUpperCase();
+            console.log("Palabra secreta: " + palabraSecreta);
+            document.getElementById("palabra").textContent = "_".repeat(palabraSecreta.length);
+            intentosRestantes = 6;
+            document.getElementById("intentos").textContent = intentosRestantes;
+            document.getElementById("letra").value = "";
+            limpiar(); //limpiar el canva llama la funcion
+        }
+
+        function dibujar() {
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            var cont;
+ 
+
+            //dibujar las partes del cuerpo según los intentos restantes
+            switch (intentosRestantes) {
+
+                case 5:
+                    //circulo
+                    ctx.beginPath();
+                    ctx.arc(200, 70, 45, 0, 2 * Math.PI);
+                    ctx.stroke();
+                    cont++;
+                    break;
+                case 4:
+                    //cuerpo
+                    ctx.beginPath();
+                    ctx.moveTo(200, 110);
+                    ctx.lineTo(200, 280);
+                    ctx.stroke();
+                    cont++;
+                    break;
+                case 3:
+                    //brazo izq
+                    ctx.beginPath();
+                    ctx.moveTo(200, 130);
+                    ctx.lineTo(300, 190);
+                    ctx.stroke();
+                    cont++;
+                    break;
+                case 2:
+                    //brazo dere
+                    ctx.beginPath();
+                    ctx.moveTo(200, 130);
+                    ctx.lineTo(100, 190);
+                    ctx.stroke();
+                    cont++;
+                    break;
+                case 1:
+                    //pierna izq
+                    ctx.beginPath();
+                    ctx.moveTo(200, 280);
+                    ctx.lineTo(300, 380);
+                    ctx.stroke();
+                    cont++;
+                    break;
+                case 0:
+                    //pierna dere
+                    ctx.beginPath();
+                    ctx.moveTo(200, 280);
+                    ctx.lineTo(100, 380);
+                    ctx.stroke();
+                    cont++;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function limpiar() {
+            const canvas = document.getElementById("myCanvas"); //limpia el canva funcion
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        //inicia juego
+        document.getElementById("palabra").textContent = "_".repeat(palabraSecreta.length);
+    </script>
+</body>
+</html>
