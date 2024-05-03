@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <style>
+      body
+      {
+        background-color: rgb(233, 227, 188);
+      }
         .container {
             text-align: center;
         }
@@ -13,6 +17,34 @@
         }
         button:hover {
             background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        button.dos {
+            background: linear-gradient(to bottom, red, orange, green);
+            margin: 30px;
+            color: rgb(46, 45, 42);
+            font-weight: 700;
+        }
+        button.dos:hover {
+            background: linear-gradient(to bottom, violet, indigo, blue);
+            color: #ffffff;
+            font-weight: 700;
+
+        }
+
+        button.tres {
+            background: linear-gradient(to top, rgb(226, 226, 197), rgb(153, 136, 105), rgb(76, 65, 44));
+            margin: 30px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        button.tres:hover {
+            background: linear-gradient(to bottom,rgb(226, 226, 197), rgb(153, 136, 105), rgb(76, 65, 44));
+            color: #ffffff;
+            font-weight: 700;
+
         }
         p{
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -22,8 +54,12 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <p>Click en la opción</p>
+  <div class="container">
+    <p>Click en la opción</p>
+  </div>
+  <div class="container">
+      <div>SEMANA 1</div>
+        
         <button onclick="Ejercicio1()">Ejercicio 1</button>
         <button onclick="Ejercicio2()">Ejercicio 2</button>
         <button onclick="Ejercicio3()">Ejercicio 3</button>
@@ -32,16 +68,24 @@
         <button onclick="Ejercicio6()">Ejercicio 6</button> 
         <button onclick="Ejercicio7()">Ejercicio 7</button> 
         <button onclick="Ejercicio8()">Ejercicio 8</button> 
-
-        <button onclick="Ejercicio9()">Ejercicio 9</button> 
-        <button onclick="Ejercicio10()">Ejercicio 10</button> 
-        <button onclick="Ejercicio11()">Ejercicio 11</button> 
-        <button onclick="Ejercicio12()">Ejercicio 12</button> 
-        <button onclick="Ejercicio13()">Ejercicio 13</button> 
-        <button onclick="Ejercicio14()">Ejercicio 14</button> 
-        <button onclick="Ejercicio15()">Ejercicio 15</button> 
-        <button onclick="Ejercicio16()">Ejercicio 16</button> 
-    </div>
+      </div>
+      <div class="container">
+        <div>SEMANA 2</div>
+        <button class="dos" onclick="Ejercicio9()">Ejercicio 9</button> 
+        <button class="dos" onclick="Ejercicio10()">Ejercicio 10</button> 
+        <button class="dos" onclick="Ejercicio11()">Ejercicio 11</button> 
+        <button class="dos" onclick="Ejercicio12()">Ejercicio 12</button> 
+        <button class="dos" onclick="Ejercicio13()">Ejercicio 13</button> 
+        <button class="dos" onclick="Ejercicio14()">Ejercicio 14</button> 
+        <button class="dos" onclick="Ejercicio15()">Ejercicio 15</button> 
+        <button class="dos" onclick="Ejercicio16()">Ejercicio 16</button> 
+      </div>
+      <div class="container">
+        <div>SEMANA 2</div>
+        <button class="tres" onclick="Ejercicio17()">Ejercicio 17</button> 
+        <button class="tres" onclick="Ejercicio18()">Ejercicio 18</button> 
+      </div>
+ 
     <p id="demo"></p>
 
     <script>
@@ -87,44 +131,53 @@
         function Ejercicio9() {
 
         document.getElementById("demo").innerHTML
-        = "<a href='https://camipiz.github.io/portafoliocamila/ejercicio11.html'>EJERCICIO 8</a>";
+        = "<a href='https://camipiz.github.io/portafoliocamila/ejercicio11.html'>EJERCICIO 9</a>";
         }
         function Ejercicio10() {
 
         document.getElementById("demo").innerHTML
-        = "<a href='https://camipiz.github.io/portafoliocamila/ejercicio12.html'>EJERCICIO 8</a>";
+        = "<a href='https://camipiz.github.io/portafoliocamila/ejercicio12.html'>EJERCICIO 10</a>";
         }           
         function Ejercicio11() {
 
         document.getElementById("demo").innerHTML
-        = "<a href='https://camipiz.github.io/portafoliocamila/ejercicio13.html'>EJERCICIO 8</a>";
+        = "<a href='https://camipiz.github.io/portafoliocamila/ejercicio13.html'>EJERCICIO 11</a>";
         }           
         function Ejercicio12() {
 
         document.getElementById("demo").innerHTML
-        = "<a href='https://camipiz.github.io/portafoliocamila/grafica.html'>EJERCICIO 8</a>";
+        = "<a href='https://camipiz.github.io/portafoliocamila/grafica.html'>EJERCICIO 12</a>";
         }           
         function Ejercicio13() {
 
         document.getElementById("demo").innerHTML
-        = "<a href='https://camipiz.github.io/portafoliocamila/ejercicio15.html'>EJERCICIO 8</a>";
+        = "<a href='https://camipiz.github.io/portafoliocamila/ejercicio15.html'>EJERCICIO 13</a>";
         }           
         function Ejercicio14() {
 
         document.getElementById("demo").innerHTML
-        = "<a href='https://camipiz.github.io/portafoliocamila/ejercicio16.html'>EJERCICIO 8</a>";
+        = "<a href='https://camipiz.github.io/portafoliocamila/ejercicio16.html'>EJERCICIO 14</a>";
         }           
         function Ejercicio15() {
 
         document.getElementById("demo").innerHTML
-        = "<a href='https://camipiz.github.io/portafoliocamila/reto1.html'>EJERCICIO 8</a>";
+        = "<a href='https://camipiz.github.io/portafoliocamila/reto1.html'>EJERCICIO 15</a>";
         }           
         function Ejercicio16() {
 
         document.getElementById("demo").innerHTML
-        = "<a href='https://camipiz.github.io/portafoliocamila/reto2.html'>EJERCICIO 8</a>";
+        = "<a href='https://camipiz.github.io/portafoliocamila/reto2.html'>EJERCICIO 16</a>";
+        } 
+        function Ejercicio17() {
+
+        document.getElementById("demo").innerHTML
+        = "<a href='https://camipiz.github.io/portafoliocamila/ahorcado.html'>EJERCICIO 17</a>";
+        } 
+        function Ejercicio18() {
+
+        document.getElementById("demo").innerHTML
+        = "<a href='https://camipiz.github.io/portafoliocamila/testalumno.html'>EJERCICIO 18</a>";
         }           
     </script>
 </body>
 </html>
-
