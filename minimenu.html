@@ -46,6 +46,17 @@
             font-weight: 700;
 
         }
+        button.pdf {
+            background: linear-gradient(to left, rgb(226, 226, 197), rgb(197, 49, 38), rgb(226, 226, 197));
+            margin: 30px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        button.pdf:hover {
+            background: linear-gradient(to bottom,rgb(197, 49, 38), rgb(226, 226, 197), rgb(197, 49, 38));
+            color: #ffffff;
+            font-weight: 700;
+        }
         p{
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 60px;
@@ -81,9 +92,14 @@
         <button class="dos" onclick="Ejercicio16()">Ejercicio 16</button> 
       </div>
       <div class="container">
-        <div>SEMANA 2</div>
+        <div>SEMANA 3</div>
         <button class="tres" onclick="Ejercicio17()">Ejercicio 17</button> 
         <button class="tres" onclick="Ejercicio18()">Ejercicio 18</button> 
+      </div>
+      <div class="container">
+        <div>SEMANA PDF</div>
+        <button class="pdf" onclick="Ejercicio19()">Ejercicio 19</button> 
+        <button class="pdf" onclick="Ejercicio20()">Ejercicio 20</button> 
       </div>
  
     <p id="demo"></p>
@@ -177,7 +193,15 @@
 
         document.getElementById("demo").innerHTML
         = "<a href='https://camipiz.github.io/portafoliocamila/testalumno.html'>EJERCICIO 18</a>";
-        }           
+        }
+        function Ejercicio19() {
+        document.getElementById("demo").innerHTML
+        = "<a href='https://camipiz.github.io/portafoliocamila/testreto.html'>EJERCICIO 19</a>";
+        } 
+        function Ejercicio20() {
+        document.getElementById("demo").innerHTML
+        = "<a href='https://camipiz.github.io/portafoliocamila/ejerciciopdf2.html'>EJERCICIO 20</a>";
+        } 
     </script>
 </body>
 </html>
