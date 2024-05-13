@@ -15,19 +15,26 @@
 <body>
     <iframe frameborder="0" width="500" height="400"></iframe>
     <script>
-        String (name[2]);
-        name[2] = prompt('Un solo caracter');
-var multiplier = prompt('Ingresa una altura:');
-multiplier = parseInt(multiplier);
-
+        
+        var car = prompt('Ingresa un solo carácter');
+        if (car.length !== 1) {
+            alert('Por favor, ingresa solo un carácter.');
+        } else {
+            var altura = prompt('Ingresa una altura:');
+            altura = parseInt(altura);
+        }
 var doc = new jsPDF();//DOC PDF
 doc.setFontSize(22);
 doc.text(20, 20, 'Piramide');
 
+            for(var i = 1; i <= altura; i ++) {
+                var row = '';
+                for (var j = 0; j < i; j++) {
+                    row += car;
+                }
+                doc.text(20, 30 + (i * 10), i + row);
+            }
 
-for(var i = 1; i <= 12; i ++) {
-	doc.text(20, 30 + (i * 10), i + ' x ' + multiplier + ' = ' + (i * name));
-}
 var string = doc.output('datauristring');
 
 $('iframe').attr('src', string);
