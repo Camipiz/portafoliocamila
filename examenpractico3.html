@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen 3er</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h5 {
+            text-align: center;
+            color: #333;
+        }
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 100%;
+            max-width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+        .char-count {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+        .result-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+            overflow: auto;
+            }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LOS ROMANOS</h1>
+        <h5>Paula Camila Alvarado Mendez</h5>
+
+        <div class="form-container">
+            <form id="myform" onsubmit="return reemplazado();">
+                <label for="oracion">Ingresa tu oración:</label>
+                <textarea id="oracion" name="oracion" oninput="convertirMayusculas(this); validarInput(this)" maxlength="100" rows="2" cols="5"></textarea>
+                <p class="char-count" id="charCount">0/100 caracteres</p>
+                <input type="submit" value="Generar PDF">
+            </form>
+        </div>
+
+        <div class="result-container">
+            <h2>Resultado:</h2>
+            <iframe id="pdfPreview" frameborder="0"></iframe>
+            <div id="resultado"></div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="jspdf.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+
+    <script type="text/javascript">
+        function reemplazado() {
+            var oracion1 = document.getElementById('oracion').value;
+
+            var reemplazo = {'A': 'I', 'B': 'I', 'C': 'Ñ', 'D': 'H', 'E': 'O', 'F': 'M', 'G': 'T', 'H': 'L', 
+                'I': 'B', 'J': 'S', 'K': 'A', 'L': 'R', 'M': 'Q', 'N': 'P', 'Ñ': 'E', 'O': 'W', 
+                'P': 'J', 'Q': 'F', 'R': 'V', 'S': 'U', 'T': 'K', 'U': 'X', 'V': 'D', 'W': 'Y', 
+                'X': 'N', 'Y': 'Z', 'Z': 'G'
+            };
+
+            var reemplazo1 = oracion1.split('').map(function(char) {
+                return reemplazo[char] || char;
+            }).join('');
+
+            //imprime resultado
+            document.getElementById('resultado').innerHTML = '<strong>Oración original:</strong><br>' + oracion1 + '<br><br><strong>Oración modificada:</strong><br>' + reemplazo1;
+
+            //genera el PDF
+            var doc = new jsPDF();
+            doc.setFontSize(12);
+            doc.text(20, 20, 'Oración original:\n' + oracion1 + '\n\nOración modificada:\n' + reemplazo1);
+            var string = doc.output('datauristring');
+            $('#pdfPreview').attr('src', string);
+
+            return false;
+        }
+
+        function convertirMayusculas(input) {
+            input.value = input.value.toUpperCase();
+        }
+
+        function validarInput(input) {
+            input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
+            var charCount = input.value.length;
+            document.getElementById('charCount').innerText = charCount + '/100 caracteres';
+        }
+    </script>
+</body>
+</html>
